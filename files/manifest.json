@@ -1,0 +1,32 @@
+{
+ "name": "भैसोटीया ऑर्गेनिक फार्म",
+ "short_name": "भैसोटीया ऑर्गेनिक",
+ "description": "भैसोटीया ऑर्गेनिक फार्म का पूरा हिसाब",
+ "start_url": "./",
+ "scope": "./",
+ "display": "standalone",
+ "orientation": "portrait",
+ "background_color": "#EEF3E6",
+ "theme_color": "#1B5E20",
+ "lang": "hi",
+ "icons": [
+  {
+   "src": "icon-192.png",
+   "sizes": "192x192",
+   "type": "image/png",
+   "purpose": "any"
+  },
+  {
+   "src": "icon-512.png",
+   "sizes": "512x512",
+   "type": "image/png",
+   "purpose": "any"
+  },
+  {
+   "src": "icon-maskable-512.png",
+   "sizes": "512x512",
+   "type": "image/png",
+   "purpose": "maskable"
+  }
+ ]
+}

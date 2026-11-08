@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="hi"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>भैसोटीया ऑर्गेनिक</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#1B5E20">
+<meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="icon" href="icon-192.png"><link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#EEF3E6;--card:#fff;--ink:#1C2B22;--mut:#5E6F63;--g:#1F7A45;--r:#B3261E;--line:#DCE5D2;--chip:#EEF3E6}
+@media (prefers-color-scheme:dark){:root{--bg:#15221A;--card:#1E2E24;--ink:#E6EFE2;--mut:#9FB3A5;--g:#4CC07A;--r:#FF7A70;--line:#2F4336;--chip:#26382D}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Mukta',system-ui,sans-serif}
+.app{max-width:560px;margin:auto;padding:0 14px 40px}
+.bar{position:sticky;top:0;z-index:5;margin:0 -14px 14px;padding:calc(14px + env(safe-area-inset-top,0px)) 16px 12px;background:linear-gradient(135deg,#1B5E20,#2E7D32);color:#fff}
+.bar h1{margin:0;font-size:21px;font-weight:800}
+.pills{display:flex;gap:8px;margin-top:10px}
+.pills button{flex:1;border:0;border-radius:999px;padding:8px;font:600 15px 'Mukta',sans-serif;background:rgba(255,255,255,.2);color:#fff}
+.pills button.on{background:#fff;color:#1B5E20}
+.hero{border-radius:22px;padding:18px 18px 16px;color:#fff;margin-bottom:12px}
+.hero.up{background:linear-gradient(135deg,#1F7A45,#38B56E)}
+.hero.down{background:linear-gradient(135deg,#B3261E,#E4635A)}
+.hero small{font-size:15px;opacity:.92}
+.hero .big{font-size:50px;font-weight:800;line-height:1.1}
+.hero .sub{font-size:18px;font-weight:600}
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.tile{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px 14px}
+.tile small{display:block;color:var(--mut);font-size:14px}
+.tile b{font-size:24px;font-weight:800}
+.tile i{display:block;font-style:normal;color:var(--mut);font-size:12px;margin-top:2px}
+.pos{color:var(--g)}.neg{color:var(--r)}
+h2{font-size:18px;margin:22px 2px 10px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;margin-bottom:12px;overflow:hidden}
+.card .top{height:6px;background:var(--c)}
+.card .in{padding:12px 14px 14px}
+.hd{display:flex;align-items:center;gap:10px}
+.ic{width:42px;height:42px;border-radius:13px;display:grid;place-items:center;font-size:22px;background:var(--c)}
+.hd b{flex:1;font-size:17px;line-height:1.2}
+.amt{font-size:22px;font-weight:800;color:var(--g)}
+.meter{height:8px;border-radius:8px;background:var(--chip);margin:11px 0 9px;overflow:hidden}
+.meter i{display:block;height:100%;background:var(--c);border-radius:8px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.chip{background:var(--chip);border-radius:999px;padding:4px 11px;font-size:14px;font-weight:600}
+.row{margin-bottom:12px}
+.row .t{display:flex;justify-content:space-between;font-weight:600;font-size:16px}
+.bar2{height:10px;border-radius:8px;background:var(--chip);margin-top:5px;overflow:hidden}
+.bar2 i{display:block;height:100%;background:#E0A526}
+.list{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:2px 14px}
+.rec{display:flex;gap:10px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}
+.rec:last-child{border:0}
+.rec .e{font-size:22px}
+.rec .m{flex:1;font-size:16px}
+.rec .m span{display:block;color:var(--mut);font-size:13px}
+.nt{padding:10px 0;border-bottom:1px solid var(--line);font-size:15px}
+.nt:last-child{border:0}
+.nt span{display:block;color:var(--mut);font-size:13px}
+.warn{background:#FFF1C9;color:#1C2B22;border-left:5px solid #E0A526;border-radius:10px;padding:10px 12px;margin-top:16px;font-weight:600}
+.lg{width:30px;height:30px;border-radius:8px;vertical-align:-8px;margin-right:8px}
+.empty{color:var(--mut);padding:24px 4px}
+.pinbox{text-align:center;padding:40px 10px}.pinbox .lock{font-size:54px}
+.pinbox input{display:block;margin:14px auto;width:200px;font:800 30px 'Mukta',sans-serif;letter-spacing:8px;text-align:center;padding:10px;border-radius:14px;border:2px solid var(--line);background:var(--card);color:var(--ink)}
+.pinbox button{font:800 20px 'Mukta',sans-serif;padding:12px 40px;border:0;border-radius:999px;background:var(--g);color:#fff}
+.pinbox .err{color:var(--r);margin-top:12px;font-weight:600}
+</style></head><body><div class="app">
+<div class="bar"><h1><img class="lg" src="icon-192.png" alt="">भैसोटीया ऑर्गेनिक<span style="display:block;font-size:13px;font-weight:600;opacity:.85;margin-left:38px;margin-top:-2px">फार्म हिसाब</span></h1>
+<div class="pills"><button data-r="all" class="on">सब</button><button data-r="month">इस महीने</button><button data-r="week">इस हफ्ते</button></div></div>
+<div id="app"><div class="empty">लोड हो रहा है...</div></div></div>
+<script>
+var range='all';
+function esc(t){return String(t).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function fmt(n){return '₹'+Math.round(Math.abs(n)).toLocaleString('en-IN')}
+function getPin(){try{return localStorage.getItem('fp')||''}catch(e){return ''}}
+function savePin(v){try{localStorage.setItem('fp',v)}catch(e){}}
+function askPin(msg){document.getElementById('app').innerHTML='<div class="pinbox"><div class="lock">🔒</div><h2>PIN डालो</h2><input id="pin" type="password" inputmode="numeric" maxlength="6" autocomplete="off"><button id="go">खोलो</button><div class="err">'+esc(msg||'')+'</div></div>';document.getElementById('go').onclick=function(){savePin(document.getElementById('pin').value.trim());load()}}
+var API='https://script.google.com/macros/s/AKfycbzUbt2ZDhQrlOo8cvkThNooXsJ32kpcOlNSNNcB9BMK6B-FkGKVPl80nIbCUk5HS5Ku/exec';
+function load(){
+  var A=document.getElementById('app');
+  if(API.indexOf('PASTE')===0){A.innerHTML='<div class="empty">index.html में API लिंक अभी नहीं डाला गया.</div>';return}
+  var u=API+(API.indexOf('?')<0?'?':'&')+'api=1&range='+range+'&pin='+encodeURIComponent(getPin());
+  fetch(u).then(function(r){return r.json()}).then(function(s){
+    if(!s.needPin){try{localStorage.setItem('last_'+range,JSON.stringify(s))}catch(e){}}
+    draw(s)
+  }).catch(function(){
+    var c=null;try{c=JSON.parse(localStorage.getItem('last_'+range)||'null')}catch(e){}
+    if(c){draw(c);A.insertAdjacentHTML('afterbegin','<div class="warn" style="margin:0 0 12px">इंटरनेट नहीं है. पुराना डेटा दिख रहा है.</div>')}
+    else A.innerHTML='<div class="empty">इंटरनेट नहीं है या लिंक गलत है.</div>'
+  })
+}
+function draw(s){
+  var A=document.getElementById('app');
+  if(s.needPin){savePin('');askPin(s.msg);return}
+  if(!s.count){A.innerHTML='<div class="empty">अभी कोई एंट्री नहीं. चैट डालो टैब में चैट paste करो.</div>';return}
+  var up=s.profit>=0,h='';
+  h+='<div class="hero '+(up?'up':'down')+'"><small>अभी तक का फायदा</small><div class="big">'+(up?'+':'-')+fmt(s.profit)+'</div><div class="sub">'+(up?'आप फायदे में हैं':'आप घाटे में हैं')+'</div></div>';
+  h+='<div class="tiles"><div class="tile"><small>कमाई (एडवांस मिलाकर)</small><b class="pos">'+fmt(s.inc)+'</b></div><div class="tile"><small>खर्चा</small><b class="neg">'+fmt(s.exp)+'</b>'+(s.exp?'':'<i>मजदूरी और दवाई अभी जुड़ी नहीं</i>')+'</div></div>';
+  var mx=1;s.sections.forEach(function(c){mx=Math.max(mx,c.inc)});
+  h+='<h2>हर हिसाब अलग-अलग</h2>';
+  s.sections.forEach(function(c){
+    var ch=[];
+    if(c.kg)ch.push(c.kg.toLocaleString('en-IN')+' kg');
+    if(c.rate)ch.push('औसत ₹'+c.rate+'/kg');
+    if(c.adv)ch.push('एडवांस '+fmt(c.adv));
+    if(c.book)ch.push(c.book+' बुकिंग');
+    Object.keys(c.counts).forEach(function(k){ch.push(esc(k)+' '+Math.round(c.counts[k]).toLocaleString('en-IN'))});
+    if(c.notes)ch.push(c.notes+' काम/नोट');
+    if(c.exp)ch.push('खर्चा '+fmt(c.exp));
+    h+='<div class="card" style="--c:'+c.color+'"><div class="top"></div><div class="in"><div class="hd"><div class="ic">'+c.icon+'</div><b>'+esc(c.label)+'</b>'+(c.inc?'<div class="amt">'+fmt(c.inc)+'</div>':'')+'</div>'+
+      (c.inc?'<div class="meter"><i style="width:'+(c.inc/mx*100)+'%"></i></div>':'')+
+      '<div class="chips">'+ch.map(function(t){return '<span class="chip">'+t+'</span>'}).join('')+'</div></div></div>';
+  });
+  var cn=Object.keys(s.cats),cm=1;cn.forEach(function(k){cm=Math.max(cm,s.cats[k])});
+  if(cn.length){h+='<h2>खर्चा कहां गया</h2><div class="list" style="padding-top:14px">';
+    cn.sort(function(a,b){return s.cats[b]-s.cats[a]}).forEach(function(k){h+='<div class="row"><div class="t"><span>'+esc(k)+'</span><span>'+fmt(s.cats[k])+'</span></div><div class="bar2"><i style="width:'+(s.cats[k]/cm*100)+'%"></i></div></div>'});
+    h+='</div>'}
+  if(s.notes&&s.notes.length){h+='<h2>काम और सावधानी</h2><div class="list">';
+    s.notes.forEach(function(n){h+='<div class="nt">'+esc(n.n)+'<span>'+n.d+' · '+esc(n.crop||'')+'</span></div>'});h+='</div>'}
+  h+='<h2>ताज़ा एंट्री</h2><div class="list">';
+  s.recent.forEach(function(r){var inc=(r.t==='बिक्री'||r.t==='एडवांस');h+='<div class="rec"><div class="e">'+r.i+'</div><div class="m">'+esc(r.p||'-')+'<span>'+r.d+' · '+esc(r.l)+' · '+r.t+'</span></div><b class="'+(inc?'pos':'neg')+'">'+fmt(r.a)+'</b></div>'});
+  h+='</div>';
+  if(s.check)h+='<div class="warn">'+s.check+' एंट्री में शक है. शीट के डेटा टैब में "जांचो" वाली पंक्तियां देख लो.</div>';
+  A.innerHTML=h;
+}
+document.querySelectorAll('.pills button').forEach(function(b){b.onclick=function(){document.querySelectorAll('.pills button').forEach(function(x){x.classList.remove('on')});b.classList.add('on');range=b.dataset.r;load()}});
+load();setInterval(function(){if(!document.getElementById('pin'))load()},60000);
+document.addEventListener('visibilitychange',function(){if(!document.hidden&&!document.getElementById('pin'))load()});
+if('serviceWorker' in navigator)navigator.serviceWorker.register('sw.js');
+</script></body></html>
