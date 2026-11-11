@@ -57,12 +57,14 @@ h2{font-size:18px;margin:22px 2px 10px}
 .nt span{display:block;color:var(--mut);font-size:13px}
 .warn{background:#FFF1C9;color:#1C2B22;border-left:5px solid #E0A526;border-radius:10px;padding:10px 12px;margin-top:16px;font-weight:600}
 .lg{width:30px;height:30px;border-radius:8px;vertical-align:-8px;margin-right:8px}
+.due{color:#E8832A}
 .empty{color:var(--mut);padding:24px 4px}
 .pinbox{text-align:center;padding:40px 10px}.pinbox .lock{font-size:54px}
 .pinbox input{display:block;margin:14px auto;width:200px;font:800 30px 'Mukta',sans-serif;letter-spacing:8px;text-align:center;padding:10px;border-radius:14px;border:2px solid var(--line);background:var(--card);color:var(--ink)}
 .pinbox button{font:800 20px 'Mukta',sans-serif;padding:12px 40px;border:0;border-radius:999px;background:var(--g);color:#fff}
 .pinbox .err{color:var(--r);margin-top:12px;font-weight:600}
-</style></head><body><div class="app">
+</style><script src="config.js"></script>
+</head><body><div class="app">
 <div class="bar"><h1><img class="lg" src="icon-192.png" alt="">भैसोटीया ऑर्गेनिक<span style="display:block;font-size:13px;font-weight:600;opacity:.85;margin-left:38px;margin-top:-2px">फार्म हिसाब</span></h1>
 <div class="pills"><button data-r="all" class="on">सब</button><button data-r="month">इस महीने</button><button data-r="week">इस हफ्ते</button></div></div>
 <div id="app"><div class="empty">लोड हो रहा है...</div></div></div>
@@ -73,7 +75,7 @@ function fmt(n){return '₹'+Math.round(Math.abs(n)).toLocaleString('en-IN')}
 function getPin(){try{return localStorage.getItem('fp')||''}catch(e){return ''}}
 function savePin(v){try{localStorage.setItem('fp',v)}catch(e){}}
 function askPin(msg){document.getElementById('app').innerHTML='<div class="pinbox"><div class="lock">🔒</div><h2>PIN डालो</h2><input id="pin" type="password" inputmode="numeric" maxlength="6" autocomplete="off"><button id="go">खोलो</button><div class="err">'+esc(msg||'')+'</div></div>';document.getElementById('go').onclick=function(){savePin(document.getElementById('pin').value.trim());load()}}
-var API='https://script.google.com/macros/s/AKfycbzUbt2ZDhQrlOo8cvkThNooXsJ32kpcOlNSNNcB9BMK6B-FkGKVPl80nIbCUk5HS5Ku/exec';
+var API=window.FARM_API||'PASTE_YOUR_WEB_APP_URL_HERE';
 function load(){
   var A=document.getElementById('app');
   if(API.indexOf('PASTE')===0){A.innerHTML='<div class="empty">index.html में API लिंक अभी नहीं डाला गया.</div>';return}
@@ -109,6 +111,10 @@ function draw(s){
       (c.inc?'<div class="meter"><i style="width:'+(c.inc/mx*100)+'%"></i></div>':'')+
       '<div class="chips">'+ch.map(function(t){return '<span class="chip">'+t+'</span>'}).join('')+'</div></div></div>';
   });
+  if(s.ledger&&s.ledger.list.length){var lg=s.ledger;
+    h+='<h2>👥 ग्राहक खाता</h2><div class="tiles" style="margin-bottom:10px"><div class="tile"><small>कुल सौदा</small><b>'+fmt(lg.deal)+'</b></div><div class="tile"><small>बाकी लेना</small><b class="due">'+fmt(lg.rem)+'</b></div></div><div class="list">';
+    lg.list.forEach(function(e){var has=e.rem!==null;h+='<div class="rec"><div class="e">👤</div><div class="m">'+esc(e.n)+'<span>'+(e.p?'पाटीया '+esc(e.p)+' · ':'')+'एडवांस '+fmt(e.adv)+(e.cnt>1?' ('+e.cnt+' बार)':'')+(has?' · सौदा '+fmt(e.deal):'')+'</span></div><b class="'+(has?(e.rem>0?'due':'pos'):'')+'">'+(has?(e.rem>0?fmt(e.rem)+' बाकी':'पूरा ✓'):fmt(e.adv)+' मिला')+'</b></div>'});
+    h+='</div>'}
   var cn=Object.keys(s.cats),cm=1;cn.forEach(function(k){cm=Math.max(cm,s.cats[k])});
   if(cn.length){h+='<h2>खर्चा कहां गया</h2><div class="list" style="padding-top:14px">';
     cn.sort(function(a,b){return s.cats[b]-s.cats[a]}).forEach(function(k){h+='<div class="row"><div class="t"><span>'+esc(k)+'</span><span>'+fmt(s.cats[k])+'</span></div><div class="bar2"><i style="width:'+(s.cats[k]/cm*100)+'%"></i></div></div>'});
